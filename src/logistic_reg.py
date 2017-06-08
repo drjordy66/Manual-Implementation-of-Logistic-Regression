@@ -19,7 +19,7 @@ def computeobj(beta, lamb, x, y):
     :param y: array
         labels
     """
-    
+
     n = x.shape[0]
 
     obj = (1/n)*(np.sum(np.log(1 + np.exp(-y*np.dot(x, beta))))) \
