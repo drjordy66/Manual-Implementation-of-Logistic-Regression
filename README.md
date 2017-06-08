@@ -10,3 +10,19 @@ See the [examples](https://github.com/drjordy66/logistic_reg_fastgrad/tree/maste
 All data will be downloaded during the example scripts. No outside downloads are required.
 
 __PLEASE NOTE__: This algorithm does not implement cross-validation to find the optimal regularization parameter.
+
+Installation
+------------
+
+To install `logistic_reg_fastgrad` you will need to clone the repository on your computer using the following `git` command:
+
+```
+git clone https://github.com/drjordy66/logistic_reg_fastgrad.git
+```
+
+Next, to install the package you will need to go int the `src` directory and run the `setup.py` file:
+
+```
+cd src/
+python setup.py install
+```
