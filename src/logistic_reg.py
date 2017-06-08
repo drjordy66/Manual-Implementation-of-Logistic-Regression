@@ -87,7 +87,7 @@ def backtracking(beta, lamb, x, y, eta=1, alpha=0.5, gamma=0.8, max_iter=100):
     return eta
 
 
-def fastgradalgo(beta_init, theta_init, lamb, x, y, max_iter):
+def fastgradalgo(beta_init, theta_init, lamb, x, y, max_iter, eps=1e-5):
     """
     :param beta_init: array
         initialize betas (typically zeros)
@@ -106,14 +106,16 @@ def fastgradalgo(beta_init, theta_init, lamb, x, y, max_iter):
     n = x.shape[0]
     beta = beta_init
     theta = theta_init
+    grad_theta = computegrad(theta, lamb, x, y)
     eta_init = 1/(max(np.linalg.eigh(np.dot((1/n)*x.T, x))[0]) + lamb)
     beta_vals = [beta_init]
     t = 0
 
-    while t < max_iter:
+    while t < max_iter and np.linalg.norm(grad_theta) > eps:
         eta = backtracking(beta, lamb, x, y, eta=eta_init)
-        beta_next = theta - eta*computegrad(theta, lamb, x, y)
+        beta_next = theta - eta*grad_theta
         theta = beta_next + t*(beta_next - beta)/(t + 3)
+        grad_theta = computegrad(theta, lamb, x, y)
         beta = beta_next
         beta_vals.append(beta)
         t += 1
