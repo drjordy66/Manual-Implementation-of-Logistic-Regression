@@ -1,4 +1,4 @@
-import logistic_reg as lreg
+import src.logistic_reg as lreg
 import numpy as np
 import pandas as pd
 
@@ -48,5 +48,6 @@ logit = LogisticRegression(C=1/(2*n*0.1),
                            fit_intercept=False,
                            tol=1e-8).fit(x_train, y_train)
 
-# print the coefficients found using the fast gradient algorithm
-logit.coef_
+# print the coefficients found using the fast gradient algorithm and sklearn
+print(fastgrad_betas)
+print(logit.coef_)
