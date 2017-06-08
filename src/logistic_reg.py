@@ -1,18 +1,14 @@
 """
 Minimizing Logistic Regression using Fast Gradient Algorithm with Backtracking
 """
-# import copy # Currently not being used
-# import matplotlib.pyplot as plt # Currently not being used
+
+
 import numpy as np
 import pandas as pd
 
-from IPython.core.interactiveshell import InteractiveShell
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-
-InteractiveShell.ast_node_interactivity = "all"
-# %matplotlib inline # Commented out as it only pertains to .ipynb
 
 
 def computeobj(beta, lamb, x, y):
