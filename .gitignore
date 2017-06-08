@@ -2,3 +2,4 @@
 build/*
 dist/*
 logistic_reg.egg-info/*
+/*/__pycache__/*
