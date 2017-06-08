@@ -1,1 +1,4 @@
 /*/.ipynb_checkpoints/*
+build/*
+dist/*
+logistic_reg.egg-info/*
