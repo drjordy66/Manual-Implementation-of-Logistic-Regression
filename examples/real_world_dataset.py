@@ -1,3 +1,10 @@
+"""
+This code shows an example implementing the fast gradient algorithm to compute
+the beta coefficients and misclassification error. It compares the beta
+coefficients to that of sklearn.
+"""
+
+
 import src.logistic_reg as lreg
 import numpy as np
 import pandas as pd
@@ -51,5 +58,11 @@ logit = LogisticRegression(C=1/(2*n*0.1),
                            tol=1e-8).fit(x_train, y_train)
 
 # print the coefficients found using the fast gradient algorithm and sklearn
-print(fastgrad_betas)
-print(logit.coef_)
+print("\nFast Gradient Algorithm Coefficients:\n", fastgrad_betas)
+print("\nSci-kit Learn's LogisticRegression() Coefficients:\n", logit.coef_)
+
+# apply the coefficients found using the fast gradient algorithm to test set
+y_predict = (np.dot(x_test, fastgrad_betas) > 0)*2 - 1
+
+# print the misclassification error
+print("\nMisclassification Error: %.2f%%" % (np.mean(y_predict != y_test)*100))
