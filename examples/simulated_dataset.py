@@ -46,7 +46,7 @@ fastgrad_betas = lreg.fastgradalgo(beta_init=beta_init,
                                    lamb=0.1,
                                    x=x_train,
                                    y=y_train,
-                                   max_iter=1000)[-1]
+                                   max_iter=1000)
 
 # run sci-kit learn's LogisticRegression() to find the beta coefficients
 logit = LogisticRegression(C=1/(2*n*0.1),
@@ -54,11 +54,11 @@ logit = LogisticRegression(C=1/(2*n*0.1),
                            tol=1e-8).fit(x_train, y_train)
 
 # print the coefficients found using the fast gradient algorithm and sklearn
-print("\nFast Gradient Algorithm Coefficients:\n", fastgrad_betas)
+print("\nFast Gradient Algorithm Coefficients:\n", fastgrad_betas[-1])
 print("\nSci-kit Learn's LogisticRegression() Coefficients:\n", logit.coef_)
 
 # apply the coefficients found using the fast gradient algorithm to test set
-y_predict = (np.dot(x_test, fastgrad_betas) > 0)*2 - 1
+y_predict = (np.dot(x_test, fastgrad_betas[-1]) > 0)*2 - 1
 
 # print the misclassification error
 print("\nMisclassification Error: %.2f%%" % (np.mean(y_predict != y_test)*100))
