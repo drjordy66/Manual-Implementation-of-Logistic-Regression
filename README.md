@@ -23,6 +23,6 @@ git clone https://github.com/drjordy66/logistic_reg_fastgrad.git
 Next, to install the package you will need to go int the `src` directory and run the `setup.py` file:
 
 ```
-cd src/
+cd logistic_reg_fastgrad/
 python setup.py install
 ```
