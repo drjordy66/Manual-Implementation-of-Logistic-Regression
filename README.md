@@ -1,7 +1,7 @@
-logistic_reg_fastgrad
+Logistic Regression via Gradient Descent
 =====================
 
-This code implements the fast gradient algorithm to solve the following logistic regression problem:
+This code implements a gradient algorithm to solve the following logistic regression problem:
 
 ![logistic regression](https://github.com/drjordy66/logistic_reg_fastgrad/blob/master/images/problem.PNG "logistic regression")
 
